@@ -1,0 +1,12 @@
+- name: add docker main repository
+  template:
+    src: docker-main.repo.j2
+    dest: /etc/yum.repos.d/docker-main.repo
+
+- name: install docker
+  yum:
+    name: docker-engine
+    state: present
+  notify:
+    - restart cgconfig
+    - start docker
