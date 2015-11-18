@@ -5,3 +5,6 @@
    docker_opts: "--userland-proxy=false --bip=192.168.200.1/22"
   roles:
     - ../../ansible-docker
+
+# Run tests
+- include: check.yml
