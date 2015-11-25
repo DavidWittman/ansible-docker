@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision :ansible do |ansible|
-    ansible.playbook = "tests/playbook.yml"
+    ansible.playbook = "test/integration/vagrant/playbook.yml"
     ansible.verbose = ""
   end
 
