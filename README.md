@@ -1,5 +1,7 @@
 # Ansible Docker role for EL 6/7
 
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-DavidWittman.docker-blue.svg?style=flat)](https://galaxy.ansible.com/detail#/role/6099)
+
 This role installs the latest version of Docker from the official Docker repositories. All the other roles I've found seemed to be way more opinionated. This one just installs `docker-engine`, starts the service, then leaves you alone. Good day sir.
 
 ## Configurations
