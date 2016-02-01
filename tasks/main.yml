@@ -27,3 +27,8 @@
   template:
     src: sysconfig.j2
     dest: /etc/sysconfig/docker
+
+- name: set docker to start at boot
+  service:
+    name: docker
+    enabled: yes
