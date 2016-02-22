@@ -3,3 +3,9 @@ DOCKER_OPTS="{{ docker_opts }}"
 {% elif ansible_distribution_major_version == "6" %}
 other_args="{{ docker_opts }}"
 {% endif %}
+{% if docker_http_proxy %}
+HTTP_PROXY="{{ docker_http_proxy }}"
+{% endif %}
+{% if docker_https_proxy %}
+HTTPS_PROXY="{{ docker_https_proxy }}"
+{% endif %}
