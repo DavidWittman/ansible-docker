@@ -4,9 +4,25 @@
 
 This role installs the latest version of Docker from the official Docker repositories. All the other roles I've found seemed to be way more opinionated. This one just installs `docker-engine`, starts the service, then leaves you alone. Good day sir.
 
-## Configurations
+## Role Variables
 
  * `docker_opts` - Arguments passed to the docker daemon at start time
+ * `docker_env` - Dictionary of environment variables to set for the docker daemon
+
+## Common Settings
+
+### Using an HTTP(S) proxy with Docker
+
+Use the `docker_env` variable to set the `HTTP_PROXY` and/or `HTTPS_PROXY` environment variables:
+
+``` yaml
+- hosts: all
+  roles:
+    - role: DavidWittman.docker
+      docker_env:
+        HTTP_PROXY: "http://127.0.0.1:8080"
+        HTTPS_PROXY: "https://127.0.0.1:8080"
+```
 
 ## Testing
 
