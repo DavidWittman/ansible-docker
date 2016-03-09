@@ -3,6 +3,7 @@ galaxy_info:
   author: David Wittman
   description: An unopinionated Docker role for RHEL/CentOS
   min_ansible_version: 1.2
+  license: BSD
   platforms:
     - name: EL
       versions:
