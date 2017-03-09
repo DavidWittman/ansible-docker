@@ -10,12 +10,12 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "cent7" do |cent7|
-    cent7.vm.box = "https://github.com/CommanderK5/packer-centos-template/releases/download/0.7.1/vagrant-centos-7.1.box"
+    cent7.vm.box = "wittman/centos-7.2"
     cent7.vm.hostname = "dockertest-cent7"
   end
 
   config.vm.define "cent6" do |cent6|
-    cent6.vm.box = "https://github.com/CommanderK5/packer-centos-template/releases/download/0.6.7/vagrant-centos-6.7.box"
+    cent6.vm.box = "wittman/centos-6.7"
     cent6.vm.hostname = "dockertest-cent6"
   end
 
