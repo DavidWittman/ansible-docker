@@ -1,7 +1,11 @@
+# Remove Docker Engine if `docker_engine_cleanup` is set
+- include: cleanup.yml
+  when: docker_engine_cleanup|default(false)|bool
+
 - name: add docker main repository
-  template:
-    src: docker-main.repo.j2
-    dest: /etc/yum.repos.d/docker-main.repo
+  copy:
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
 
 - name: create systemd override directory
   file:
@@ -17,7 +21,7 @@
 
 - name: install docker
   yum:
-    name: docker-engine
+    name: docker-ce
     state: present
   register: docker_install
 
