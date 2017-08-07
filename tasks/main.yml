@@ -1,3 +1,10 @@
+- name: check for centos 7
+  fail:
+    msg: >-
+        Docker CE requires CentOS 7. Please use the `0.2` branch of this role
+        to deploy on CentOS 6.
+  when: ansible_distribution_major_version != "7"
+
 # Remove Docker Engine if `docker_engine_cleanup` is set
 - include: cleanup.yml
   when: docker_engine_cleanup|default(false)|bool
@@ -17,7 +24,6 @@
   copy:
     src: override.conf
     dest: /etc/systemd/system/docker.service.d/override.conf
-  when: ansible_distribution_major_version == "7"
 
 - name: install docker
   yum:
@@ -29,15 +35,6 @@
   template:
     src: sysconfig.j2
     dest: /etc/sysconfig/docker
-
-# Prefer when|changed over a notification so these run ASAP
-- name: restart cgconfig on rhel6
-  service:
-    name: cgconfig
-    state: restarted
-  when:
-    - docker_install|changed
-    - ansible_os_family == "RedHat" and ansible_distribution_major_version == "6"
 
 - name: start and enable docker
   service:
