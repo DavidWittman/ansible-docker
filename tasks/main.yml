@@ -1,7 +1,7 @@
 - name: check for centos 7
   fail:
     msg: >-
-        Docker CE requires CentOS 7. Please use the `0.2` branch of this role
+        Docker CE requires CentOS 7. Please use the `centos6` branch of this role
         to deploy on CentOS 6.
   when: ansible_distribution_major_version != "7"
 
