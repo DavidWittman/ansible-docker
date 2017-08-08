@@ -2,12 +2,23 @@
 
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-DavidWittman.docker-blue.svg?style=flat)](https://galaxy.ansible.com/detail#/role/6099)
 
-This role installs the latest version of Docker from the official Docker repositories. All the other roles I've found seemed to be way more opinionated. This one just installs `docker-engine`, starts the service, then leaves you alone. Good day sir.
+This role installs the latest version of Docker from the official Docker repositories. All the other roles I've found seemed to be way more opinionated. This one just installs `docker-ce`, starts the service, then leaves you alone. Good day sir.
+
+## CentOS 6 Support
+
+The `master` branch uses Docker CE and thus only supports CentOS 7. For CentOS 6 support, use the `centos6` branch:
+
+``` bash
+$ ansible-galaxy install git+https://github.com/DavidWittman/ansible-docker.git,centos6 -p /path/to/roles/dir
+```
+
+Updates will be made to this branch for maintenance only and support for CentOS 6 will be fully deprecated in the future.
 
 ## Role Variables
 
  * `docker_opts` - Arguments passed to the docker daemon at start time
  * `docker_env` - Dictionary of environment variables to set for the docker daemon
+ * `docker_engine_cleanup` - Set this variable to `true` to clean up the old `docker-engine` repositories and packages.
 
 ## Common Settings
 

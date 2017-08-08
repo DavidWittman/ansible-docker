@@ -1,0 +1,15 @@
+---
+- name: remove docker engine
+  yum:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker
+    - docker-common
+    - docker-selinux
+    - docker-engine
+
+- name: remove docker engine repo
+  file:
+    path: /etc/yum.repos.d/docker-main.repo
+    state: absent
