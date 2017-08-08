@@ -6,7 +6,13 @@ This role installs the latest version of Docker from the official Docker reposit
 
 ## CentOS 6 Support
 
-The `master` branch uses Docker CE and thus only supports CentOS 7. For CentOS 6 support, use the `centos6` branch. Updates will be made to this branch for maintenance only and support for CentOS 6 will be fully deprecated in the future.
+The `master` branch uses Docker CE and thus only supports CentOS 7. For CentOS 6 support, use the `centos6` branch:
+
+``` bash
+$ ansible-galaxy install git+https://github.com/DavidWittman/ansible-docker.git,centos6 -p /path/to/roles/dir
+```
+
+Updates will be made to this branch for maintenance only and support for CentOS 6 will be fully deprecated in the future.
 
 ## Role Variables
 
