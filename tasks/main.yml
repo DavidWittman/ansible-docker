@@ -1,8 +1,10 @@
 - name: check for centos 7
   fail:
     msg: >-
-        Docker CE requires CentOS 7. Please use the `centos6` branch of this role
-        to deploy on CentOS 6.
+        Docker CE requires CentOS 7. Please use the `centos6` branch of this
+        role to deploy on CentOS 6 with docker-engine. For more info visit
+        https://github.com/DavidWittman/ansible-docker/blob/master/README.md#centos-6-support
+
   when: ansible_distribution_major_version != "7"
 
 # Remove Docker Engine if `docker_engine_cleanup` is set
